@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendrier d'Événements</title>
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.css' rel='stylesheet' />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px 10px;
+            padding: 0;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        #calendar {
+            max-width: 900px;
+            margin: 100px;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 10px 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        .nav-logo {
+            height: 40px;
+        }
+        .nav-right {
+            display: flex;
+            gap: 10px;
+        }
+        .nav-button {
+            background-color: #555;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .nav-button:hover {
+            background-color: #777;
+        }
+        .content {
+            padding: 80px 20px; /* Ensure content is not hidden behind the fixed nav bar */
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <img src="./images/petanque.jpg" alt="Logo" class="nav-logo">
+        </div>
+        <div class="nav-right">
+            <button class="nav-button">Information entrainement</button>
+            <button class="nav-button">Nous contacter</button>
+        </div>
+    </nav>
+    <br>
+    <br>
+    <div class="content">
+        <h1>La Boule Grandrengtôise</h1>
+        <p>Site du club de Grand-reng avec toutes les informations</p>
+    </div>
+
+    <div id='calendar'></div>
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/locales/fr.js'></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                locale: 'fr',
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+                events: [
+                    // Ajoutez vos événements ici
+                    {
+                        title: 'Tournois de pétanque',
+                        start: '2024-07-20'
+                    },
+                    {
+                        title: 'tournois nocture',
+                        start: '2024-08-14'
+                    },
+                    
+                ]
+            });
+            
+            calendar.render();
+            
+        });
+        
+    </script>
+</body>
+</html>
